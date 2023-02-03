@@ -1,10 +1,11 @@
 package main;
+
 import java.util.Scanner;
 
 public class Hedgehog {
     private String name;
     private int age;
-    Scanner sc = new Scanner(System.in);
+    
 
     public Hedgehog(){
         name = "Pikseli";
@@ -18,9 +19,9 @@ public class Hedgehog {
 
     }
 
-    public void speak(){
+    public void speak(Scanner sc){
         
-        System.out.println("Mitä siili sanoo");
+        System.out.println("Mitä siili sanoo:");
         String speech = sc.nextLine();
         if(speech == ""){
             System.out.println("Olen "+ name + " ja ikäni on "+ age +", mutta antaisitko silti syötteen?");
@@ -29,8 +30,8 @@ public class Hedgehog {
         System.out.println(name+": " + speech);
 
     }
-    public void Run(){
-        System.out.print("Anna kierrosten lukumäärä: ");
+    public void Run(Scanner sc){
+        System.out.println("Kuinka monta kierrosta?");
         int laps = Integer.parseInt(sc.nextLine());
 
         for(int i = 0; i < laps; i++){

@@ -13,7 +13,7 @@ public class App {
         boolean exit = false;
 
         while(!exit){
-            System.out.print("\n1) Luo uusi siili\n2) Pistä siili puhumaan \n3) Juoksuta siiliä\n0) Lopeta ohjelma\nAnna valintasi: ");
+            System.out.println("1) Pistä siili puhumaan, 2) Luo uusi siili, 3) Juoksuta siiliä, 0) Lopeta ohjelma");
             
             if(sc.hasNext()) {
                 int i = 0;
@@ -21,27 +21,30 @@ public class App {
                 i = Integer.parseInt(stringInput);
                 
                 switch(i) {
+                    
                     case 1:
-                        System.out.print("Anna siilille nimi: ");
+                        newSiili.speak(sc);
+                        break;
+                    
+                    case 2:
+                        System.out.println("Anna siilin nimi: ");
                         String name = sc.nextLine();
-                        System.out.print("Anna siilille ikä: ");
+                        System.out.println("Anna siilin ikä: ");
                         int age = Integer.parseInt(sc.nextLine());
 
                         newSiili = new Hedgehog(name, age);
                         break;
-                    case 2:
-                        newSiili.speak();
-                        break;
                     
                     case 3:
-                        newSiili.Run();
+                        newSiili.Run(sc);
+
                         break;
                     case 0:
-                        System.out.println("Lopetetaan.\nKiitos ohjelman käytöstä!");
+                        System.out.println("Kiitos ohjelman käytöstä.");
                         exit = true;
                         break;
                     default:
-                        System.out.println("Tuntematon valinta, yritä uudestaan.");
+                        System.out.println("Syöte oli väärä");
                         break;
 
 
